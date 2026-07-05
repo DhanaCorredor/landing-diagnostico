@@ -21,7 +21,7 @@
   /* ===== TOKENS · blanco + turquesa ===== */
   :root{
     --ink:#15302e; --teal:#173f3d; --turq:#276D6B; --turq-d:#1c5250; --turq-l:#eef3f2;
-    --lime:#7BA845; --muted:#63756f; --line:#e8eceb; --bg:#ffffff; --bg2:#f7faf9; --wa:#25D366;
+    --lime:#7BA845; --muted:#4f6460; --line:#e8eceb; --bg:#ffffff; --bg2:#f7faf9; --wa:#25D366;
     --grad:#276D6B;
     --grad-deep:#1f5250;
     --shadow:0 12px 30px -18px rgba(20,55,52,.16);
@@ -41,7 +41,7 @@
   .sec-head{ max-width:640px; margin:0 auto; }
   .sec-title{ font-size:clamp(13px,4.3vw,36px); font-weight:700; color:var(--teal); margin:14px 0 12px; text-transform:uppercase; letter-spacing:-.01em; white-space:normal; text-wrap:balance; }
   .sec-intro{ color:var(--muted); font-size:15.5px; }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:'Inter',sans-serif; font-weight:600; font-size:15px; padding:14px 26px; border-radius:999px; cursor:pointer; border:none; transition:transform .18s, box-shadow .18s; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; font-family:'Inter',sans-serif; font-weight:600; font-size:16px; padding:15px 26px; border-radius:999px; cursor:pointer; border:none; transition:transform .18s, box-shadow .18s; }
   .btn svg{ width:18px; height:18px; }
   .btn-turq{ background:var(--grad); color:#fff; box-shadow:0 12px 26px -10px rgba(18,169,182,.6); }
   .btn-turq:hover{ transform:translateY(-2px); }
@@ -74,7 +74,7 @@
   .hero-copy{ padding:48px 22px 54px; text-align:center; max-width:780px; margin:0 auto; }
   .hero h1{ text-transform:uppercase; font-size:clamp(21px,6vw,31px); font-weight:800; line-height:1.16; margin:0; }  /* móvil: 2 líneas */
   .hero h1 em{ font-style:normal; color:#fff; display:block; }  /* móvil: título todo blanco */
-  .hero .lead{ font-size:15.5px; color:rgba(255,255,255,.85); margin:16px auto 0; max-width:470px; }
+  .hero .lead{ font-size:16.5px; color:rgba(255,255,255,.9); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
   .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
   .hero-cta .btn{ flex:1 1 auto; min-width:200px; }
@@ -82,8 +82,8 @@
   /* móvil: 3 cuadritos pequeños en una sola línea */
   .trust{ display:flex; justify-content:center; gap:8px; margin-top:24px; flex-wrap:nowrap; }
   .trust .item{ flex:1 1 0; min-width:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:13px; padding:11px 6px; text-align:center; }
-  .trust .n{ font-family:'Sora',sans-serif; font-size:18px; font-weight:700; color:#fff; }
-  .trust .l{ font-size:9.5px; color:rgba(255,255,255,.78); line-height:1.25; }
+  .trust .n{ font-family:'Sora',sans-serif; font-size:19px; font-weight:700; color:#fff; }
+  .trust .l{ font-size:12px; color:rgba(255,255,255,.9); line-height:1.3; }
 
   .vcard{ position:relative; border-radius:26px; overflow:hidden; background:var(--grad-deep); box-shadow:var(--shadow); padding:30px; min-height:280px; display:flex; flex-direction:column; justify-content:space-between; }
   .vcard .emblem{ width:66px; height:66px; border-radius:20px; background:rgba(255,255,255,.18); display:grid; place-items:center; position:relative; z-index:1; }
@@ -126,9 +126,9 @@
   .prow.feat{ background:var(--turq-l); }
   .prow.feat:hover{ background:#dceff0; }
   .pinfo{ flex:1; min-width:0; }
-  .ptag{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--turq-d); }
-  .pname{ font-family:'Sora',sans-serif; font-weight:600; font-size:15.5px; color:var(--teal); margin-top:2px; }
-  .pdesc{ font-size:12.5px; color:var(--muted); margin-top:2px; line-height:1.4; }
+  .ptag{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--turq-d); }
+  .pname{ font-family:'Sora',sans-serif; font-weight:600; font-size:16.5px; color:var(--teal); margin-top:2px; }
+  .pdesc{ font-size:14px; color:var(--muted); margin-top:3px; line-height:1.45; }
   .pprice{ font-family:'Sora',sans-serif; font-weight:800; font-size:23px; color:var(--turq); white-space:nowrap; }
   /* Promociones sobre fondo azul */
   #promociones .sec-title{ color:#fff; }
@@ -142,7 +142,7 @@
   #promociones .prow.feat:hover{ background:rgba(191,224,138,.18); }
   #promociones .ptag{ color:#bfe08a; }
   #promociones .pname{ color:#fff; }
-  #promociones .pdesc{ color:rgba(255,255,255,.7); }
+  #promociones .pdesc{ color:rgba(255,255,255,.9); }
   #promociones .pprice{ color:#fff; font-size:30px; text-shadow:0 3px 10px rgba(0,0,0,.55); }
   /* Ubicación compacta */
   #ubicacion{ padding:42px 0; }
@@ -176,8 +176,9 @@
   .irow{ display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px 18px; box-shadow:var(--shadow-sm); }
   .irow .ic{ width:44px; height:44px; border-radius:12px; background:var(--turq-l); display:grid; place-items:center; color:var(--turq-d); flex:none; }
   .irow .ic svg{ width:21px; height:21px; }
-  .irow .lab{ font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; }
-  .irow .val{ font-size:15px; font-weight:500; }
+  .irow .lab{ font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+  .irow .val{ font-size:18px; font-weight:600; color:var(--ink); }
+  .irow a.val{ color:var(--turq-d); }
 
   /* CTA */
   .cta-band{ position:relative; overflow:hidden; background:var(--grad-deep); border-radius:28px; padding:44px 26px; text-align:center; color:#fff; box-shadow:var(--shadow); }
@@ -194,7 +195,7 @@
   .ft a{ display:block; font-size:14px; padding:4px 0; color:#cfe4e2; }
   .ft a:hover{ color:#fff; }
   .ft-soc{ display:flex; gap:10px; margin-top:12px; }
-  .ft-soc a{ width:40px; height:40px; border-radius:12px; background:rgba(255,255,255,.1); display:grid; place-items:center; padding:0; }
+  .ft-soc a{ width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.1); display:grid; place-items:center; padding:0; }
   .ft-soc svg{ width:19px; height:19px; }
   .ft-bot{ text-align:center; border-top:1px solid rgba(255,255,255,.14); margin-top:30px; padding-top:20px; font-size:12.5px; color:#a7cbc8; }
 
@@ -402,7 +403,7 @@
     </div>
     <div class="info reveal">
       <div class="irow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><div class="lab">Dirección</div><div class="val">C.C. Parque Aragua, nivel 3 · Pasillo Av. Bolívar 3-13, Maracay</div></div></div>
-      <div class="irow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></span><div><div class="lab">WhatsApp · Cita previa</div><div class="val">0412 - 9160186</div></div></div>
+      <div class="irow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 2 .7 2.9a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></span><div><div class="lab">WhatsApp · Cita previa</div><a href="tel:+584129160186" class="val">0412 - 9160186</a></div></div>
       <a class="btn btn-turq" href="https://www.google.com/maps/search/?api=1&query=C.C.+Parque+Aragua+Maracay" target="_blank" rel="noopener" style="width:100%;">Cómo llegar</a>
     </div>
   </div></div>
