@@ -72,16 +72,18 @@
   .hero::before{ content:""; position:absolute; top:-120px; right:-90px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle, rgba(147,199,82,.22), transparent 68%); z-index:0; }
   .hero-grid{ position:relative; z-index:1; }
   .hero-copy{ padding:48px 22px 54px; text-align:center; max-width:780px; margin:0 auto; }
-  .hero h1{ text-transform:uppercase; font-size:31px; font-weight:800; line-height:1.14; margin:0; }
-  .hero h1 em{ font-style:normal; color:#bfe08a; display:block; }
+  .hero h1{ text-transform:uppercase; font-size:clamp(21px,6vw,31px); font-weight:800; line-height:1.16; margin:0; }  /* móvil: 2 líneas */
+  .hero h1 em{ font-style:normal; color:#fff; display:block; }  /* móvil: título todo blanco */
   .hero .lead{ font-size:15.5px; color:rgba(255,255,255,.85); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
   .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
   .hero-cta .btn{ flex:1 1 auto; min-width:200px; }
-  .trust{ display:flex; justify-content:center; gap:10px; margin-top:26px; flex-wrap:wrap; }
-  .trust .item{ background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:14px; padding:12px 14px; min-width:88px; }
-  .trust .n{ font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#fff; }
-  .trust .l{ font-size:11px; color:rgba(255,255,255,.78); }
+  .hero-cta.only-mob .btn{ min-width:0; }        /* móvil: Servicios + Promociones en una fila */
+  /* móvil: 3 cuadritos pequeños en una sola línea */
+  .trust{ display:flex; justify-content:center; gap:8px; margin-top:24px; flex-wrap:nowrap; }
+  .trust .item{ flex:1 1 0; min-width:0; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:13px; padding:11px 6px; text-align:center; }
+  .trust .n{ font-family:'Sora',sans-serif; font-size:18px; font-weight:700; color:#fff; }
+  .trust .l{ font-size:9.5px; color:rgba(255,255,255,.78); line-height:1.25; }
 
   .vcard{ position:relative; border-radius:26px; overflow:hidden; background:var(--grad-deep); box-shadow:var(--shadow); padding:30px; min-height:280px; display:flex; flex-direction:column; justify-content:space-between; }
   .vcard .emblem{ width:66px; height:66px; border-radius:20px; background:rgba(255,255,255,.18); display:grid; place-items:center; position:relative; z-index:1; }
@@ -219,6 +221,13 @@
     .svc-more{ display:none; }
     .bento-wrap{ display:block; }
     .only-desk{ display:block; }
+    .hero-cta.only-desk{ display:flex; }
+    .only-mob{ display:none; }
+    .hero h1 em{ color:#bfe08a; }
+    .trust{ flex-wrap:wrap; gap:10px; }
+    .trust .item{ flex:0 0 auto; min-width:88px; padding:12px 14px; }
+    .trust .n{ font-size:20px; }
+    .trust .l{ font-size:11px; }
     .hero-copy{ padding:82px 44px 90px; }
     .hero h1{ font-size:50px; }
     .hero .lead{ font-size:17px; max-width:620px; }
@@ -267,12 +276,16 @@
     <div class="hero-copy">
       <h1>Centro de <em>especialidades médicas</em></h1>
       <p class="lead"><b>Especialistas en estudios cardíacos.</b> Ecografías, Doppler, cardiología y consultas de especialidad con equipos modernos y atención cercana, en el corazón de Maracay. Atendemos con cita previa.</p>
-      <div class="hero-cta">
+      <div class="hero-cta only-desk">
         <a class="btn btn-wa" href="https://wa.me/584129160186?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
           Agendar por WhatsApp
         </a>
         <a class="btn btn-ghost" href="#promociones">Ver promociones</a>
+      </div>
+      <div class="hero-cta only-mob">
+        <a class="btn btn-out" href="servicios.html">Servicios</a>
+        <a class="btn btn-ghost" href="promociones.html">Promociones</a>
       </div>
       <div class="trust">
         <div class="item"><div class="n">11+</div><div class="l">Especialidades</div></div>
