@@ -109,6 +109,10 @@
   .card li{ display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); font-size:14px; color:#40514d; }
   .card li b{ color:var(--turq-d); font-weight:800; white-space:nowrap; background:var(--turq-l); padding:3px 10px; border-radius:8px; font-size:13.5px; }
   .card li small{ color:var(--muted); }
+  /* En móvil los servicios viven en servicios.html: se muestra el botón y se oculta la lista inline */
+  .svc-more{ display:flex; justify-content:center; margin-top:8px; }
+  .svc-more .btn{ gap:7px; }
+  .bento-wrap{ display:none; }
 
   /* PROMOCIONES */
   .promos{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:34px; }
@@ -211,6 +215,8 @@
     .nav-links a:hover{ color:var(--turq); }
     .nav-cta{ display:inline-flex; }
     section.block{ padding:82px 0; }
+    .svc-more{ display:none; }
+    .bento-wrap{ display:block; }
     .hero-copy{ padding:82px 44px 90px; }
     .hero h1{ font-size:50px; }
     .hero .lead{ font-size:17px; max-width:620px; }
@@ -245,7 +251,7 @@
   <div class="drawer" id="drawer">
     <div class="din">
       <a href="#inicio" onclick="cerrar()">Inicio</a>
-      <a href="#servicios" onclick="cerrar()">Servicios</a>
+      <a href="servicios.html">Servicios</a>
       <a href="promociones.html">Promociones</a>
       <a href="#ubicacion" onclick="cerrar()">Ubicación</a>
       <a class="btn btn-turq dcta" href="https://wa.me/584129160186?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener" onclick="cerrar()">Agendar cita</a>
@@ -282,7 +288,12 @@
     <h2 class="sec-title">Todo lo que tu corazón necesita</h2>
     <p class="sec-intro">Consultas de especialidad y estudios diagnósticos con equipos modernos.</p>
   </div>
-  <div class="container"><div class="bento">
+  <div class="container center svc-more">
+    <a class="btn btn-turq" href="servicios.html">Ver servicios y precios
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:17px;height:17px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+  <div class="container bento-wrap"><div class="bento">
     <div class="card reveal">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0012 5.5 3.5 3.5 0 002 8.5c0 2.2 1.5 4 3 5.5l7 7 7-7z"/></svg></div>
       <h3>Consultas</h3><span class="from">desde $30</span>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<script>document.documentElement.classList.add('js')</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios y precios · Diagnóstico · Centro de Salud</title>
+<meta name="description" content="Servicios y precios del Centro de Salud Diagnóstico, Maracay: consultas de especialidad, ecografías, Doppler y estudios cardíacos. Cita previa: 0412-9160186.">
+<meta name="theme-color" content="#173f3d">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://diagnosticocentrodesalud.vercel.app/servicios.html">
+<meta property="og:title" content="Servicios y precios · Diagnóstico · Centro de Salud">
+<meta property="og:description" content="Consultas, ecografías, Doppler y estudios cardíacos con precios claros. Cita previa: 0412-9160186.">
+<meta property="og:image" content="https://diagnosticocentrodesalud.vercel.app/img/logo-completo.jpg">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15302e; --teal:#276D6B; --turq:#276D6B; --turq-d:#1c5250; --turq-l:#eef3f2;
+    --lime:#7BA845; --limel:#bfe08a; --muted:#63756f; --line:#e8eceb; --bg:#ffffff; --wa:#25D366;
+    --shadow-sm:0 5px 16px -10px rgba(20,55,52,.12);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',system-ui,sans-serif; color:var(--ink); background:linear-gradient(165deg,#1d504d 0%, #173f3d 100%); min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2{ font-family:'Sora',sans-serif; line-height:1.15; letter-spacing:-.01em; }
+  a{ text-decoration:none; color:inherit; }
+  img{ max-width:100%; display:block; }
+  .container{ width:100%; max-width:760px; margin:0 auto; padding:0 20px; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; font-weight:600; font-size:15px; padding:13px 24px; border-radius:999px; border:none; cursor:pointer; }
+  .btn svg{ width:18px; height:18px; }
+  .btn-wa{ background:var(--wa); color:#fff; box-shadow:0 12px 26px -10px rgba(37,211,102,.55); }
+  .btn-ghost{ background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.4); }
+
+  /* NAV */
+  header.nav{ position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--line); }
+  .nav-in{ display:flex; align-items:center; height:64px; }
+  .nav-in .container{ display:flex; align-items:center; }
+  .brand{ margin-right:auto; display:flex; }
+  .brand img{ height:33px; }
+  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--teal); font-weight:600; font-size:14.5px; }
+  .back svg{ width:18px; height:18px; }
+
+  /* HEADER */
+  .phead{ text-align:center; padding:40px 20px 8px; color:#fff; }
+  .phead h1{ text-transform:uppercase; font-size:clamp(24px,6.6vw,40px); font-weight:800; }
+  .phead p{ color:rgba(255,255,255,.82); font-size:15px; margin-top:10px; }
+
+  /* SERVICE GROUPS — texto grande y legible (público mayor) */
+  .svc-group{ margin-top:14px; }
+  .sg-head{ display:flex; align-items:center; gap:14px; margin:30px 2px 14px; }
+  .sg-ic{ width:52px; height:52px; border-radius:15px; background:rgba(191,224,138,.16); display:grid; place-items:center; color:var(--limel); flex:none; }
+  .sg-ic svg{ width:27px; height:27px; }
+  .sg-title{ font-family:'Sora',sans-serif; font-weight:700; font-size:24px; color:#fff; line-height:1.1; }
+  .sg-from{ display:inline-block; font-size:13.5px; font-weight:600; color:var(--limel); background:rgba(191,224,138,.16); padding:3px 11px; border-radius:999px; margin-top:6px; }
+  .svc-list{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); border-radius:16px; overflow:hidden; }
+  .srow{ display:flex; justify-content:space-between; align-items:center; gap:14px; padding:15px 18px; border-top:1px solid rgba(255,255,255,.1); }
+  .srow:first-child{ border-top:none; }
+  .srow span{ font-size:17px; color:#fff; }
+  .srow small{ display:block; color:rgba(255,255,255,.6); font-size:13px; margin-top:1px; }
+  .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; background:rgba(255,255,255,.12); padding:6px 13px; border-radius:10px; white-space:nowrap; }
+
+  .actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:30px 20px 40px; }
+
+  /* FOOTER */
+  footer{ text-align:center; padding:26px 20px 40px; color:rgba(255,255,255,.7); font-size:13px; border-top:1px solid rgba(255,255,255,.1); }
+  footer strong{ color:#fff; }
+
+  @media (min-width:720px){
+    .svc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+    .sg-head{ margin-top:14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in"><div class="container">
+    <a href="index.html" class="brand"><img src="img/logo.png" alt="Diagnóstico · Centro de Salud"></a>
+    <a href="index.html" class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>Inicio</a>
+  </div></div>
+</header>
+
+<section class="container">
+  <div class="phead">
+    <h1>Servicios y precios</h1>
+    <p>Consultas de especialidad y estudios diagnósticos con equipos modernos. Precios en USD, con cita previa.</p>
+  </div>
+
+  <div class="svc-grid">
+    <!-- CONSULTAS -->
+    <div class="svc-group">
+      <div class="sg-head">
+        <div class="sg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 14c1.5-1.5 3-3.3 3-5.5A3.5 3.5 0 0012 5.5 3.5 3.5 0 002 8.5c0 2.2 1.5 4 3 5.5l7 7 7-7z"/></svg></div>
+        <div><div class="sg-title">Consultas</div><span class="sg-from">desde $30</span></div>
+      </div>
+      <div class="svc-list">
+        <div class="srow"><span>Cardiología <small>+ electro</small></span><b>$30</b></div>
+        <div class="srow"><span>Medicina Interna <small>+ electro</small></span><b>$35</b></div>
+        <div class="srow"><span>Cirugía General <small>+ eco</small></span><b>$35</b></div>
+        <div class="srow"><span>Ginecología <small>+ rastreo</small></span><b>$35</b></div>
+        <div class="srow"><span>Gastroenterología <small>+ rastreo</small></span><b>$40</b></div>
+        <div class="srow"><span>Otorrinolaringología <small>+ otoscopia</small></span><b>$40</b></div>
+        <div class="srow"><span>Traumatología</span><b>$35</b></div>
+        <div class="srow"><span>Dermatología</span><b>$35</b></div>
+        <div class="srow"><span>Venereología</span><b>$40</b></div>
+        <div class="srow"><span>Neumonología</span><b>$30</b></div>
+        <div class="srow"><span>Psicología</span><b>$30</b></div>
+      </div>
+    </div>
+
+    <!-- ECOGRAFÍAS Y DOPPLER -->
+    <div class="svc-group">
+      <div class="sg-head">
+        <div class="sg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+        <div><div class="sg-title">Ecografías y Doppler</div><span class="sg-from">desde $12</span></div>
+      </div>
+      <div class="svc-list">
+        <div class="srow"><span>Convencional <small>abdominal, renal…</small></span><b>$12</b></div>
+        <div class="srow"><span>Doppler <small>carotídeo, hepático…</small></span><b>$20</b></div>
+        <div class="srow"><span>Transvaginal</span><b>$15</b></div>
+        <div class="srow"><span>Doppler pélvico</span><b>$20</b></div>
+        <div class="srow"><span>Doppler art. y venoso <small>1 miembro</small></span><b>$25</b></div>
+        <div class="srow"><span>Doppler art. y venoso <small>ambos miembros</small></span><b>$35</b></div>
+        <div class="srow"><span>Músculo-esquelética</span><b>$20</b></div>
+      </div>
+    </div>
+
+    <!-- ESTUDIOS CARDÍACOS -->
+    <div class="svc-group">
+      <div class="sg-head">
+        <div class="sg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M3 12h3l2 6 4-13 2 9 1.5-2H21"/></svg></div>
+        <div><div class="sg-title">Estudios cardíacos</div><span class="sg-from">desde $8</span></div>
+      </div>
+      <div class="svc-list">
+        <div class="srow"><span>Ecocardiograma</span><b>$30</b></div>
+        <div class="srow"><span>Holter de ritmo <small>c/ baterías</small></span><b>$25</b></div>
+        <div class="srow"><span>MAPA <small>c/ baterías</small></span><b>$20</b></div>
+        <div class="srow"><span>Electrocardiograma informado</span><b>$15</b></div>
+        <div class="srow"><span>Electrocardiograma</span><b>$8</b></div>
+      </div>
+    </div>
+
+    <!-- OTROS ESTUDIOS (al final) -->
+    <div class="svc-group">
+      <div class="sg-head">
+        <div class="sg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8.2v7.6M8.2 12h7.6"/></svg></div>
+        <div><div class="sg-title">Otros estudios</div><span class="sg-from">desde $25</span></div>
+      </div>
+      <div class="svc-list">
+        <div class="srow"><span>Endoscopia nasal <small>informada</small></span><b>$50</b></div>
+        <div class="srow"><span>Espirometría <small>neumología</small></span><b>$25</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/584129160186?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg>
+      Agendar por WhatsApp
+    </a>
+    <a class="btn btn-ghost" href="promociones.html">Ver promociones</a>
+  </div>
+</section>
+
+<footer>
+  <strong>DIAGNÓSTICO · CENTRO DE SALUD</strong><br>
+  Maracay · C.C. Parque Aragua, nivel 3 · 0412-9160186
+</footer>
+
+</body>
+</html>
