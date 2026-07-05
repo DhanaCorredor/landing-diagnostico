@@ -17,57 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#15302e; --teal:#276D6B; --turq:#276D6B; --turq-d:#1c5250; --turq-l:#eef3f2;
-    --lime:#7BA845; --muted:#63756f; --line:#e8eceb; --bg:#ffffff; --wa:#25D366;
-    --shadow-sm:0 5px 16px -10px rgba(20,55,52,.12);
-  }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
-  body{ font-family:'Inter',system-ui,sans-serif; color:var(--ink); background:linear-gradient(165deg,#1d504d 0%, #173f3d 100%); min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  h1,h2{ font-family:'Sora',sans-serif; line-height:1.15; letter-spacing:-.01em; }
-  a{ text-decoration:none; color:inherit; }
-  img{ max-width:100%; display:block; }
-  .container{ width:100%; max-width:760px; margin:0 auto; padding:0 20px; }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; font-weight:600; font-size:15px; padding:13px 24px; border-radius:999px; border:none; cursor:pointer; }
-  .btn svg{ width:18px; height:18px; }
-  .btn-wa{ background:var(--wa); color:#fff; box-shadow:0 12px 26px -10px rgba(37,211,102,.55); }
-  .btn-ghost{ background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.4); }
-
-  /* NAV */
-  header.nav{ position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--line); }
-  .nav-in{ display:flex; align-items:center; height:64px; }
-  .nav-in .container{ display:flex; align-items:center; }
-  .brand{ margin-right:auto; display:flex; }
-  .brand img{ height:33px; }
-  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--teal); font-weight:600; font-size:14.5px; }
-  .back svg{ width:18px; height:18px; }
-
-  /* HEADER */
-  .phead{ text-align:center; padding:40px 20px 8px; color:#fff; }
-  .phead h1{ text-transform:uppercase; font-size:clamp(26px,7vw,40px); font-weight:800; }
-  .phead p{ color:rgba(255,255,255,.82); font-size:15px; margin-top:10px; }
-
-  /* PROMO LIST */
-  .promo-list{ margin:24px auto 0; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); border-radius:18px; overflow:hidden; }
-  .prow{ display:flex; align-items:center; gap:16px; padding:16px 20px; border-top:1px solid rgba(255,255,255,.12); color:inherit; transition:background .15s; }
-  .prow:first-child{ border-top:none; }
-  .prow:hover{ background:rgba(255,255,255,.06); }
-  .prow.feat{ background:rgba(191,224,138,.12); }
-  .prow.feat:hover{ background:rgba(191,224,138,.18); }
-  .pinfo{ flex:1; min-width:0; }
-  .ptag{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:#bfe08a; }
-  .pname{ font-family:'Sora',sans-serif; font-weight:600; font-size:16.5px; color:#fff; margin-top:3px; }
-  .pdesc{ font-size:14px; color:rgba(255,255,255,.9); margin-top:3px; line-height:1.45; }
-  .pprice{ font-family:'Sora',sans-serif; font-weight:800; font-size:30px; color:#fff; white-space:nowrap; text-shadow:0 3px 10px rgba(0,0,0,.55); }
-
-  .actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:26px 20px 40px; }
-
-  /* FOOTER */
-  footer{ text-align:center; padding:26px 20px 40px; color:rgba(255,255,255,.7); font-size:13px; border-top:1px solid rgba(255,255,255,.1); }
-  footer strong{ color:#fff; }
-</style>
+<link rel="stylesheet" href="css/promociones.css">
 </head>
 <body>
 
