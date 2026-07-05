@@ -38,7 +38,7 @@
   header.nav{ position:sticky; top:0; z-index:70; background:#fff; border-bottom:1px solid var(--line); }
   .nav-in{ display:flex; align-items:center; height:64px; }
   .brand{ margin-right:auto; display:flex; }
-  .brand img{ height:33px; }
+  .brand img{ height:33px; width:auto; }
   .nav-links{ display:none; }
   .nav-cta{ display:none; }
   .burger{ display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:13px; background:var(--turq-l); border:none; color:var(--turq-d); cursor:pointer; }
@@ -163,7 +163,7 @@
   /* FOOTER */
   footer.ft{ background:var(--teal); color:#cfe4e2; padding:46px 0 26px; }
   .ft-in{ display:grid; grid-template-columns:1fr; gap:28px; }
-  .ft img{ height:40px; margin-bottom:12px; }
+  .ft img{ height:40px; width:auto; margin-bottom:12px; }
   .ft p{ font-size:14px; line-height:1.85; }
   .ft h4{ font-family:'Sora',sans-serif; color:#fff; font-size:14.5px; margin-bottom:10px; }
   .ft a{ display:block; font-size:14px; padding:4px 0; color:#cfe4e2; }
