@@ -118,10 +118,15 @@
   .card li{ display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-top:1px solid var(--line); font-size:14px; color:#40514d; }
   .card li b{ color:var(--turq-d); font-weight:800; white-space:nowrap; background:var(--turq-l); padding:3px 10px; border-radius:8px; font-size:13.5px; }
   .card li small{ color:var(--muted); }
-  /* En móvil los servicios viven en servicios.html: se muestra el botón y se oculta la lista inline */
-  .svc-more{ display:flex; justify-content:center; margin-top:8px; }
-  .svc-more .btn{ gap:7px; }
+  /* En móvil los servicios viven en servicios.html: lista corta + botón "Ver todos" */
+  .svc-more{ display:block; margin-top:10px; }
+  .svc-mini-list{ list-style:none; max-width:360px; margin:0 auto; }
+  .svc-mini-list li{ display:flex; align-items:center; gap:12px; padding:14px 6px; border-top:1px solid var(--line); font-size:16.5px; font-weight:500; color:var(--ink); }
+  .svc-mini-list li:first-child{ border-top:none; }
+  .svc-mini-list li::before{ content:""; width:9px; height:9px; border-radius:50%; background:var(--lime); flex:none; }
+  .svc-mini-btn{ display:flex; gap:7px; width:max-content; margin:20px auto 0; }
   .bento-wrap{ display:none; }
+  #promociones{ display:none; }              /* móvil: Promociones vive en su página */
   .only-desk{ display:none; }  /* visible solo en desktop (ver media 940px) */
 
   /* PROMOCIONES */
@@ -228,6 +233,7 @@
     section.block{ padding:82px 0; }
     .svc-more{ display:none; }
     .bento-wrap{ display:block; }
+    #promociones{ display:block; }
     .only-desk{ display:block; }
     .hero-cta.only-desk{ display:flex; }
     .only-mob{ display:none; }
@@ -315,8 +321,14 @@
     <h2 class="sec-title">Todo lo que tu corazón necesita</h2>
     <p class="sec-intro only-desk">Consultas de especialidad y estudios diagnósticos con equipos modernos.</p>
   </div>
-  <div class="container center svc-more">
-    <a class="btn btn-turq" href="servicios.html">Ver servicios y precios
+  <div class="container svc-more">
+    <ul class="svc-mini-list">
+      <li>Consultas de especialidad</li>
+      <li>Ecografías y Doppler</li>
+      <li>Estudios cardíacos</li>
+      <li>Otros estudios</li>
+    </ul>
+    <a class="btn btn-turq svc-mini-btn" href="servicios.html">Ver todos los servicios
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:17px;height:17px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
   </div>
