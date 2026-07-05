@@ -74,6 +74,13 @@
   .hero-copy{ padding:48px 22px 54px; text-align:center; max-width:780px; margin:0 auto; }
   .hero h1{ text-transform:uppercase; font-size:clamp(21px,6vw,31px); font-weight:800; line-height:1.16; margin:0; }  /* móvil: 2 líneas */
   .hero h1 em{ font-style:normal; color:#fff; display:block; }  /* móvil: título todo blanco */
+  /* móvil: hero con la MARCA protagonista */
+  .hero-brand{ text-align:center; }
+  .hb-badge{ display:inline-grid; place-items:center; width:68px; height:68px; border-radius:21px; background:#fff; box-shadow:0 14px 30px -14px rgba(0,0,0,.55); margin-bottom:18px; }
+  .hb-badge img{ width:44px; height:44px; }
+  .hb-name{ font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(34px,10.5vw,48px); letter-spacing:-.005em; line-height:1; text-transform:uppercase; color:#fff; }
+  .hb-name .d{ color:#bfe08a; }
+  .hb-sub{ margin-top:15px; font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:#bfe08a; font-weight:600; line-height:1.4; }
   .hero .lead{ font-size:16.5px; color:rgba(255,255,255,.9); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
   .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
@@ -275,7 +282,11 @@
 <section class="hero" id="inicio">
   <div class="hero-grid">
     <div class="hero-copy">
-      <h1>Centro de <em>especialidades médicas</em></h1>
+      <div class="hero-brand only-mob">
+        <div class="hb-name"><span class="d">D</span>iagnóstico</div>
+        <div class="hb-sub">Centro de especialidades médicas</div>
+      </div>
+      <h1 class="only-desk">Centro de <em>especialidades médicas</em></h1>
       <p class="lead"><b>Especialistas en estudios cardíacos.</b> Ecografías, Doppler, cardiología y consultas de especialidad con equipos modernos y atención cercana, en el corazón de Maracay. Atendemos con cita previa.</p>
       <div class="hero-cta only-desk">
         <a class="btn btn-wa" href="https://wa.me/584129160186?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" rel="noopener">
