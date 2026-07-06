@@ -13,6 +13,8 @@ WhatsApp.
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![No build step](https://img.shields.io/badge/build-none-success)
 ![Deployed on Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![Lighthouse CI](https://github.com/DhanaCorredor/landing-diagnostico/actions/workflows/lighthouse.yml/badge.svg)](https://github.com/DhanaCorredor/landing-diagnostico/actions/workflows/lighthouse.yml)
 
 ---
 
@@ -123,17 +125,27 @@ python -m http.server 5500
 Opening `index.html` directly works too, but a local server is recommended so
 the Google Fonts and Maps requests behave as in production.
 
-## Deployment
+## Deployment & CI
 
 The site is deployed on **Vercel** as a static project (no build command, output
 directory = repository root). Every push to `main` triggers an automatic
 redeploy.
+
+A **Lighthouse CI** GitHub Action (`.github/workflows/lighthouse.yml`) audits
+performance, accessibility, best practices and SEO on every push and pull
+request, publishing a public report link in the workflow run.
 
 ## Brand
 
 - **Name:** DIAGNÓSTICO · Centro de Salud — Maracay, Aragua (Venezuela)
 - **Colors:** deep teal `#173f3d`, lime green `#7BA845`, soft turquoise tints
 - **Fonts:** Sora (display) + Inter (text)
+
+## License
+
+The source code is released under the [MIT License](LICENSE). The
+"Diagnóstico · Centro de Salud" name and logos belong to the clinic and are not
+covered by that license.
 
 ---
 

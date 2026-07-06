@@ -1,0 +1,23 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    name: Audit with Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
