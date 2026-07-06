@@ -15,6 +15,13 @@
   .btn-wa{ background:var(--wa); color:#fff; box-shadow:0 12px 26px -10px rgba(37,211,102,.55); }
   .btn-ghost{ background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.4); }
 
+  /* Accesibilidad: foco visible y reducción de movimiento */
+  :focus-visible{ outline:3px solid #bfe08a; outline-offset:3px; border-radius:5px; }
+  header.nav :focus-visible{ outline-color:var(--turq); }
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{ transition-duration:.001ms !important; scroll-behavior:auto !important; }
+  }
+
   /* NAV */
   header.nav{ position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--line); }
   .nav-in{ display:flex; align-items:center; height:64px; }
