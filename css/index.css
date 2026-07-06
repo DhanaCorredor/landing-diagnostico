@@ -41,7 +41,7 @@
   .drawer.open{ max-height:460px; border-top:1px solid var(--line); }
   .drawer .din{ padding:6px 20px 22px; display:flex; flex-direction:column; }
   .drawer a{ padding:17px 4px; font-size:19px; font-weight:600; color:var(--teal); border-bottom:1px solid var(--line); }
-  .drawer a.dcta{ margin-top:18px; border:none; font-size:17px; }
+  .drawer a.dcta{ margin-top:18px; border:none; font-size:19px; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.28); }
   .drawer a.dcta svg{ width:20px; height:20px; }
   .drawer.open{ max-height:520px; }
   /* móvil: navbar FIJO y transparente superpuesto al hero; blanco (con logo) al hacer scroll → evita el doble logo */
@@ -136,6 +136,16 @@
   #ubicacion .map{ min-height:0; }
   #ubicacion .map iframe{ height:220px; min-height:0; }
   #ubicacion .irow{ padding:13px 16px; }
+  /* móvil: info de ubicación más compacta */
+  @media (max-width:939px){
+    #ubicacion .ubi{ margin-top:18px; }
+    #ubicacion .info{ gap:9px; }
+    #ubicacion .irow{ padding:10px 14px; gap:11px; }
+    #ubicacion .irow .ic{ width:38px; height:38px; border-radius:11px; }
+    #ubicacion .irow .ic svg{ width:19px; height:19px; }
+    #ubicacion .irow .lab{ font-size:11px; }
+    #ubicacion .irow .val{ font-size:16.5px; }
+  }
 
   /* UBICACIÓN */
   .ubi{ display:grid; grid-template-columns:1fr; gap:18px; margin-top:34px; }
@@ -200,7 +210,8 @@
     .hero .lead{ font-size:17px; max-width:620px; }
     .hero-cta .btn{ flex:0 0 auto; }
     .bento{ grid-template-columns:1fr 1fr; gap:22px; }
-    .ubi{ grid-template-columns:1.35fr 1fr; }
+    .ubi{ grid-template-columns:1.35fr 1fr; align-items:stretch; }
+    .map{ height:100%; }
     .map iframe{ height:100%; min-height:380px; }
     .ft-in{ grid-template-columns:1.5fr 1fr 1fr; }
   }
