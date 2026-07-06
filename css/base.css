@@ -1,0 +1,13 @@
+/* ===== Design tokens + reset — compartido por todas las páginas ===== */
+:root{
+  --ink:#15302e; --teal:#173f3d; --turq:#276D6B; --turq-d:#1c5250; --turq-l:#eef3f2;
+  --lime:#7BA845; --limel:#bfe08a; --muted:#4f6460; --line:#e8eceb; --bg:#ffffff; --wa:#25D366;
+  --grad:#276D6B;
+  --shadow:0 12px 30px -18px rgba(20,55,52,.16);
+  --shadow-sm:0 5px 16px -10px rgba(20,55,52,.12);
+  --r:18px;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+a{ text-decoration:none; color:inherit; }
+img{ max-width:100%; display:block; }

@@ -85,7 +85,7 @@ No bundler, no dependencies, no `node_modules` — the repository is the site.
 ├── index.html          # Home (hero, services teaser, promotions, location, footer)
 ├── servicios.html      # Full services & prices, grouped by category
 ├── promociones.html    # Promotions / bundle offers
-├── css/                # Page stylesheets (index, servicios, promociones)
+├── css/                # base.css (shared tokens + reset) + one file per page
 ├── js/main.js          # Menu, scroll-aware header, reveal animations
 ├── img/                # Logos and favicon
 ├── robots.txt          # Crawler directives
