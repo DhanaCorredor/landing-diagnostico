@@ -58,14 +58,14 @@
   .hero{ position:relative; overflow:hidden; background:linear-gradient(165deg,#1d504d 0%, #173f3d 60%, #112e2c 100%); color:#fff; }
   .hero::before{ content:""; position:absolute; top:-120px; right:-90px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle, rgba(147,199,82,.22), transparent 68%); z-index:0; }
   .hero-grid{ position:relative; z-index:1; }
-  .hero-copy{ padding:48px 22px 54px; text-align:center; max-width:780px; margin:0 auto; }
+  .hero-copy{ padding:48px 22px 64px; text-align:center; max-width:920px; margin:0 auto; }
   .hero h1{ text-transform:uppercase; font-size:clamp(21px,6vw,31px); font-weight:800; line-height:1.16; margin:0; }  /* móvil: 2 líneas */
   .hero h1 em{ font-style:normal; color:#fff; display:block; }  /* móvil: título todo blanco */
   /* móvil: hero con la MARCA protagonista */
   .hero-brand{ text-align:center; }
-  .hb-name{ font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(34px,10.5vw,48px); letter-spacing:-.005em; line-height:1; text-transform:uppercase; color:#fff; }
+  .hb-name{ font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(38px,11.5vw,52px); letter-spacing:-.005em; line-height:1; text-transform:uppercase; color:#fff; }
   .hb-name .d{ color:#bfe08a; }
-  .hb-sub{ margin-top:15px; font-size:12px; letter-spacing:.13em; text-transform:uppercase; color:#bfe08a; font-weight:600; line-height:1.4; }
+  .hb-sub{ margin-top:17px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:#bfe08a; font-weight:600; line-height:1.4; }
   .hero .lead{ font-size:16.5px; color:rgba(255,255,255,.9); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
   .hero-cta{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:24px; }
@@ -196,7 +196,7 @@
     .trust .n{ font-size:20px; }
     .trust .l{ font-size:11px; }
     .hero-copy{ padding:82px 44px 90px; }
-    .hero h1{ font-size:50px; }
+    .hero h1{ font-size:56px; }
     .hero .lead{ font-size:17px; max-width:620px; }
     .hero-cta .btn{ flex:0 0 auto; }
     .bento{ grid-template-columns:1fr 1fr; gap:22px; }
