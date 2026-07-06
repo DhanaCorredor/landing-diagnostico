@@ -39,7 +39,7 @@
   .srow:first-child{ border-top:none; }
   .srow span{ font-size:17px; color:#fff; }
   .srow small{ display:block; color:rgba(255,255,255,.6); font-size:13px; margin-top:1px; }
-  .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; background:rgba(255,255,255,.12); padding:6px 13px; border-radius:10px; white-space:nowrap; }
+  .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:18px; color:#fff; background:rgba(255,255,255,.12); padding:6px 10px; border-radius:10px; white-space:nowrap; min-width:64px; text-align:center; flex:none; }
 
   .actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:30px 20px 40px; }
 
