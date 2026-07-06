@@ -58,11 +58,13 @@ step, deployed on Vercel.
   targets and a tap-to-call phone number (`tel:` link).
 - **WhatsApp-driven conversion** — a floating WhatsApp button plus contextual CTAs
   that pre-fill the message for each service/promotion.
+- **Location made easy** — embedded Google Map, full address, opening hours and a
+  one-tap "how to get there" link.
 - **Local SEO & social sharing** — `MedicalClinic` structured data (JSON-LD)
   with address, opening hours and specialties, plus `sitemap.xml`, `robots.txt`,
   canonical links and Open Graph / Twitter cards for rich link previews.
-- **Graceful degradation** — reveal animations and the scroll-aware navbar are
-  progressive enhancements; the content is fully usable without JavaScript.
+- **Graceful degradation** — the scroll-aware transparent navbar is a progressive
+  enhancement; the content is fully usable without JavaScript.
 
 ## Tech stack
 
@@ -70,9 +72,8 @@ step, deployed on Vercel.
 - **CSS3** — organized under `css/`, using custom properties (design tokens),
   Flexbox and CSS Grid, fluid typography with `clamp()`, mobile-first media
   queries and a `prefers-reduced-motion` fallback. No CSS framework.
-- **Vanilla JavaScript** — `js/main.js`, a few kilobytes for the hamburger menu,
-  the scroll-aware header and `IntersectionObserver` reveal animations. No inline
-  scripts or handlers.
+- **Vanilla JavaScript** — `js/main.js`, a couple of kilobytes for the hamburger
+  menu and the scroll-aware header. No inline scripts or handlers.
 - **External services** — Google Fonts (Sora + Inter) and an embedded Google Map.
 - **Hosting** — [Vercel](https://vercel.com) (static, zero-config).
 
@@ -86,7 +87,7 @@ No bundler, no dependencies, no `node_modules` — the repository is the site.
 ├── servicios.html      # Full services & prices, grouped by category
 ├── promociones.html    # Promotions / bundle offers
 ├── css/                # base.css (shared tokens + reset) + one file per page
-├── js/main.js          # Menu, scroll-aware header, reveal animations
+├── js/main.js          # Hamburger menu + scroll-aware header
 ├── img/                # Logos and favicon
 ├── robots.txt          # Crawler directives
 ├── sitemap.xml         # Sitemap for search engines
