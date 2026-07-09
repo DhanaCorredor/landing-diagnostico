@@ -191,7 +191,7 @@
          transform:translate(-50%,-50%); pointer-events:none;
          background:radial-gradient(closest-side, rgba(214,175,90,.18), transparent 70%); }
   .aniv-in{ position:relative; z-index:1; max-width:680px; margin:0 auto; }
-  .aniv-logo{ width:min(420px,86vw); height:auto; margin:0 auto 6px;
+  .aniv-logo{ width:min(300px,64vw); height:auto; margin:0 auto 6px;
          filter:drop-shadow(0 12px 26px rgba(0,0,0,.4)); }
   .aniv-title{ font-family:'Sora',sans-serif; font-weight:700; text-transform:uppercase;
          white-space:nowrap; font-size:clamp(12px,4.1vw,27px); letter-spacing:-.01em;
@@ -203,7 +203,7 @@
   .aniv-date::before,.aniv-date::after{ content:""; width:36px; height:1px;
          background:linear-gradient(90deg,transparent,#d9ab54); }
   .aniv-date::after{ background:linear-gradient(90deg,#d9ab54,transparent); }
-  @media (min-width:940px){ .aniv{ padding:64px 44px; } }
+  @media (min-width:940px){ .aniv{ padding:64px 44px; } .aniv-logo{ width:380px; } }
 
   /* ===== BREAKPOINTS ===== */
   @media (min-width:640px){
