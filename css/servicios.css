@@ -35,11 +35,11 @@
   .sg-title{ font-family:'Sora',sans-serif; font-weight:700; font-size:24px; color:#fff; line-height:1.1; }
   .sg-from{ display:inline-block; font-size:13.5px; font-weight:600; color:var(--limel); background:rgba(191,224,138,.16); padding:3px 11px; border-radius:999px; margin-top:6px; }
   .svc-list{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); border-radius:16px; overflow:hidden; }
-  .srow{ display:flex; justify-content:space-between; align-items:center; gap:14px; padding:15px 18px; border-top:1px solid rgba(255,255,255,.1); }
+  .srow{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:15px 16px; border-top:1px solid rgba(255,255,255,.1); }
   .srow:first-child{ border-top:none; }
-  .srow span{ font-size:17px; color:#fff; }
+  .srow span{ flex:1 1 auto; min-width:0; overflow-wrap:break-word; font-size:16.5px; color:#fff; }
   .srow small{ display:block; color:rgba(255,255,255,.6); font-size:13px; margin-top:1px; }
-  .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:27px; color:#fff; white-space:nowrap; text-shadow:0 3px 10px rgba(0,0,0,.55); min-width:78px; text-align:center; flex:none; font-variant-numeric:tabular-nums; }
+  .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:25px; color:#fff; white-space:nowrap; text-shadow:0 3px 10px rgba(0,0,0,.55); min-width:56px; text-align:right; flex:none; font-variant-numeric:tabular-nums; }
 
   .actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:30px 20px 40px; }
 
@@ -50,4 +50,79 @@
   @media (min-width:720px){
     .svc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
     .sg-head{ margin-top:14px; }
+  }
+
+  /* ===== COTIZACIÓN POR WHATSAPP (PROTOTIPO) ===== */
+  /* pista bajo el encabezado */
+  .qhint{ margin-top:14px; font-size:13.5px; color:rgba(255,255,255,.72); }
+  .qhint-plus{ display:inline-grid; place-items:center; width:20px; height:20px; vertical-align:-5px;
+        border-radius:6px; background:rgba(191,224,138,.18); color:var(--limel); }
+  .qhint-plus svg{ width:13px; height:13px; }
+
+  /* botón + en cada fila */
+  .qadd{ flex:none; width:38px; height:38px; border-radius:11px; cursor:pointer;
+        background:rgba(191,224,138,.12); border:1.5px solid rgba(191,224,138,.5); color:var(--limel);
+        display:grid; place-items:center; transition:transform .15s, background .15s, color .15s, border-color .15s; }
+  .qadd svg{ width:19px; height:19px; }
+  .qadd:hover{ transform:translateY(-1px); background:rgba(191,224,138,.2); }
+  .qadd.on{ background:var(--lime); border-color:var(--lime); color:#173f3d; }
+  .srow.is-added{ background:rgba(191,224,138,.08); }
+
+  /* pastilla flotante */
+  .qbar{ position:fixed; left:50%; bottom:20px; transform:translate(-50%,140%); z-index:80;
+        display:inline-flex; align-items:center; gap:12px; padding:12px 20px; border:none; cursor:pointer;
+        border-radius:999px; background:var(--turq); color:#fff; font-family:'Inter',sans-serif;
+        font-weight:600; font-size:15.5px; box-shadow:0 16px 34px -12px rgba(0,0,0,.6);
+        transition:transform .28s cubic-bezier(.22,.61,.36,1), opacity .28s; opacity:0; pointer-events:none;
+        max-width:calc(100vw - 32px); }
+  .qbar.show{ transform:translate(-50%,0); opacity:1; pointer-events:auto; }
+  .qbar-ic{ position:relative; display:inline-grid; place-items:center; }
+  .qbar-ic svg{ width:22px; height:22px; }
+  .qbar-count{ position:absolute; top:-8px; right:-9px; min-width:19px; height:19px; padding:0 4px;
+        border-radius:999px; background:var(--lime); color:#173f3d; font-size:12px; font-weight:800;
+        display:grid; place-items:center; }
+  .qbar-total{ font-family:'Sora',sans-serif; font-weight:800; background:rgba(255,255,255,.16);
+        padding:3px 11px; border-radius:999px; }
+
+  /* panel (bottom sheet) */
+  .qsheet-back{ position:fixed; inset:0; z-index:100; background:rgba(10,26,25,.55);
+        opacity:0; pointer-events:none; transition:opacity .28s; display:flex; align-items:flex-end; justify-content:center; }
+  .qsheet-back.open{ opacity:1; pointer-events:auto; }
+  .qsheet{ width:100%; max-width:520px; background:#fff; color:var(--ink);
+        border-radius:22px 22px 0 0; padding:10px 20px calc(20px + env(safe-area-inset-bottom));
+        transform:translateY(100%); transition:transform .3s cubic-bezier(.22,.61,.36,1);
+        max-height:86vh; display:flex; flex-direction:column; box-shadow:0 -20px 50px -20px rgba(0,0,0,.5); }
+  .qsheet-back.open .qsheet{ transform:none; }
+  .qsheet-grab{ width:44px; height:5px; border-radius:999px; background:#d8e0de; margin:4px auto 8px; }
+  .qsheet-head{ display:flex; align-items:center; justify-content:space-between; }
+  .qsheet-head h2{ font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:var(--teal); }
+  .qsheet-x{ width:38px; height:38px; border-radius:11px; border:none; cursor:pointer;
+        background:var(--turq-l); color:var(--turq-d); display:grid; place-items:center; }
+  .qsheet-x svg{ width:20px; height:20px; }
+  .qsheet-list{ overflow-y:auto; margin:12px 0 4px; -webkit-overflow-scrolling:touch; }
+  .qitem{ display:flex; align-items:center; gap:12px; padding:12px 0; border-top:1px solid var(--line); }
+  .qitem:first-child{ border-top:none; }
+  .qitem-name{ flex:1; min-width:0; font-size:15.5px; color:var(--ink); }
+  .qitem-price{ font-family:'Sora',sans-serif; font-weight:800; font-size:16px; color:var(--turq-d);
+        white-space:nowrap; }
+  .qitem-x{ flex:none; width:32px; height:32px; border-radius:9px; border:none; cursor:pointer;
+        background:#fbecec; color:#c0483f; display:grid; place-items:center; }
+  .qitem-x svg{ width:17px; height:17px; }
+  .qsheet-foot{ border-top:1px solid var(--line); padding-top:14px; margin-top:4px; }
+  .qsheet-total{ display:flex; align-items:baseline; justify-content:space-between; }
+  .qsheet-total span{ font-size:14px; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
+  .qsheet-sum{ font-family:'Sora',sans-serif; font-weight:800; font-size:26px; color:var(--teal); }
+  .qsheet-note{ font-size:12px; color:var(--muted); margin-top:4px; }
+  .qsheet-wa{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:14px;
+        padding:15px; border-radius:14px; background:var(--wa); color:#fff; font-weight:700; font-size:16.5px;
+        box-shadow:0 12px 26px -10px rgba(37,211,102,.55); }
+  .qsheet-wa svg{ width:20px; height:20px; }
+  .qsheet-more{ display:block; width:100%; margin-top:10px; padding:12px; border:none; background:none;
+        color:var(--turq-d); font-weight:600; font-size:14.5px; cursor:pointer; }
+
+  /* que la pastilla no choque con el botón flotante de WhatsApp en móvil */
+  @media (max-width:520px){
+    .qbar{ left:16px; right:82px; display:flex; justify-content:center; max-width:none;
+           transform:translateY(140%); }
+    .qbar.show{ transform:none; }
   }
