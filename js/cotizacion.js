@@ -126,6 +126,17 @@
   back.querySelector('.qsheet-more').addEventListener('click', closeSheet);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSheet(); });
 
+  // Al enviar por WhatsApp, vaciar la cotización para que la próxima visita empiece limpia.
+  // (el enlace ya abrió WhatsApp con su href; limpiar el estado no lo afecta)
+  waEl.addEventListener('click', function () {
+    var was = keys();
+    selected = {};
+    save();
+    was.forEach(paintRow);
+    closeSheet();
+    render();
+  });
+
   function keys() { return Object.keys(selected); }
   function total() { return keys().reduce(function (s, k) { return s + (selected[k].price || 0); }, 0); }
 
