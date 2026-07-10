@@ -1,31 +1,6 @@
-  body{ font-family:'Inter',system-ui,sans-serif; color:var(--ink); background:linear-gradient(165deg,#1d504d 0%, #173f3d 100%); min-height:100vh; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  h1,h2{ font-family:'Sora',sans-serif; line-height:1.15; letter-spacing:-.01em; }
-  .container{ width:100%; max-width:760px; margin:0 auto; padding:0 20px; }
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; font-weight:600; font-size:15px; padding:13px 24px; border-radius:999px; border:none; cursor:pointer; }
-  .btn svg{ width:18px; height:18px; }
-  .btn-wa{ background:var(--wa); color:#fff; box-shadow:0 12px 26px -10px rgba(37,211,102,.55); }
-  .btn-ghost{ background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.4); }
-
-  /* Accesibilidad: foco visible y reducción de movimiento */
-  :focus-visible{ outline:3px solid #bfe08a; outline-offset:3px; border-radius:5px; }
-  header.nav :focus-visible{ outline-color:var(--turq); }
-  @media (prefers-reduced-motion: reduce){
-    *, *::before, *::after{ transition-duration:.001ms !important; scroll-behavior:auto !important; }
-  }
-
-  /* NAV */
-  header.nav{ position:sticky; top:0; z-index:60; background:#fff; border-bottom:1px solid var(--line); }
-  .nav-in{ display:flex; align-items:center; height:64px; }
-  .nav-in .container{ display:flex; align-items:center; }
-  .brand{ margin-right:auto; display:flex; }
-  .brand img{ height:33px; width:auto; }
-  .back{ display:inline-flex; align-items:center; gap:6px; color:var(--turq); font-weight:600; font-size:14.5px; }
-  .back svg{ width:18px; height:18px; }
-
-  /* HEADER */
-  .phead{ text-align:center; padding:40px 20px 8px; color:#fff; }
+  /* ===== Servicios y precios — específico de esta página ===== */
+  /* (el chrome común vive en interior.css) */
   .phead h1{ text-transform:uppercase; font-size:clamp(24px,6.6vw,40px); font-weight:800; }
-  .phead p{ color:rgba(255,255,255,.82); font-size:15px; margin-top:10px; }
 
   /* SERVICE GROUPS — texto grande y legible (público mayor) */
   .svc-group{ margin-top:14px; }
@@ -40,12 +15,6 @@
   .srow span{ flex:1 1 auto; min-width:0; overflow-wrap:break-word; font-size:16.5px; color:#fff; }
   .srow small{ display:block; color:rgba(255,255,255,.6); font-size:13px; margin-top:1px; }
   .srow b{ font-family:'Sora',sans-serif; font-weight:800; font-size:25px; color:#fff; white-space:nowrap; text-shadow:0 3px 10px rgba(0,0,0,.55); min-width:56px; text-align:right; flex:none; font-variant-numeric:tabular-nums; }
-
-  .actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; padding:30px 20px 40px; }
-
-  /* FOOTER */
-  footer{ text-align:center; padding:26px 20px 40px; color:rgba(255,255,255,.7); font-size:13px; border-top:1px solid rgba(255,255,255,.1); }
-  footer strong{ color:#fff; }
 
   @media (min-width:720px){
     .svc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }

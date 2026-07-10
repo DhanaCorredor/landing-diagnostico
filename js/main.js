@@ -9,12 +9,15 @@
 
   function closeDrawer() {
     if (drawer) drawer.classList.remove('open');
+    if (burger) burger.setAttribute('aria-expanded', 'false');
   }
 
   // Menú hamburguesa (móvil)
   if (burger && drawer) {
+    burger.setAttribute('aria-expanded', 'false');
     burger.addEventListener('click', function () {
-      drawer.classList.toggle('open');
+      var open = drawer.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     // Cerrar el menú al pulsar cualquier enlace
     drawer.querySelectorAll('a').forEach(function (link) {

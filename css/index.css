@@ -44,12 +44,11 @@
   .burger{ display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:13px; background:var(--turq-l); border:none; color:var(--turq-d); cursor:pointer; }
   .burger svg{ width:24px; height:24px; }
   .drawer{ max-height:0; overflow:hidden; transition:max-height .34s ease; background:#fff; }
-  .drawer.open{ max-height:460px; border-top:1px solid var(--line); }
+  .drawer.open{ max-height:520px; border-top:1px solid var(--line); }
   .drawer .din{ padding:6px 20px 22px; display:flex; flex-direction:column; }
   .drawer a{ padding:17px 4px; font-size:19px; font-weight:600; color:var(--teal); border-bottom:1px solid var(--line); }
   .drawer a.dcta{ margin-top:18px; border:none; font-size:19px; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.28); }
   .drawer a.dcta svg{ width:20px; height:20px; }
-  .drawer.open{ max-height:520px; }
   /* móvil: navbar FIJO y transparente superpuesto al hero; blanco (con logo) al hacer scroll → evita el doble logo */
   @media (max-width:939px){
     .js header.nav{ position:fixed; top:0; left:0; right:0; background:transparent; border-bottom-color:transparent; box-shadow:none; transition:background .25s ease, border-color .25s ease, box-shadow .25s ease; }
@@ -180,8 +179,6 @@
   .ft-soc a{ width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.1); display:grid; place-items:center; padding:0; }
   .ft-soc svg{ width:19px; height:19px; }
   .ft-bot{ text-align:center; border-top:1px solid rgba(255,255,255,.14); margin-top:30px; padding-top:20px; font-size:12.5px; color:#a7cbc8; }
-
-  /* WA FLOAT */
 
   /* ===== BANNER ANIVERSARIO (PROVISIONAL — retirar después del 11 jul) ===== */
   .aniv{ position:relative; overflow:hidden; text-align:center; padding:46px 20px;
