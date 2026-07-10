@@ -21,17 +21,14 @@ img{ max-width:100%; display:block; }
 /* ===== COTIZACIÓN POR WHATSAPP — compartido (servicios + promociones) ===== */
 /* pista bajo el encabezado */
 .qhint{ margin-top:14px; font-size:13.5px; color:rgba(255,255,255,.72); }
-.qhint-plus{ display:inline-grid; place-items:center; width:20px; height:20px; vertical-align:-5px;
-      border-radius:6px; background:rgba(191,224,138,.18); color:var(--limel); }
-.qhint-plus svg{ width:13px; height:13px; }
 
-/* botón + en cada fila */
-.qadd{ flex:none; width:38px; height:38px; border-radius:11px; cursor:pointer;
-      background:rgba(191,224,138,.12); border:1.5px solid rgba(191,224,138,.5); color:var(--limel);
+/* círculo de selección en cada fila: vacío = disponible, lima con ✓ = agregado */
+.qadd{ flex:none; width:32px; height:32px; border-radius:50%; cursor:pointer;
+      background:transparent; border:2px solid rgba(191,224,138,.85); color:transparent;
       display:grid; place-items:center; transition:transform .15s, background .15s, color .15s, border-color .15s; }
-.qadd svg{ width:19px; height:19px; }
-.qadd:hover{ transform:translateY(-1px); background:rgba(191,224,138,.2); }
-.qadd.on{ background:var(--lime); border-color:var(--lime); color:#173f3d; }
+.qadd svg{ width:18px; height:18px; }
+.qadd:hover{ transform:translateY(-1px); background:rgba(191,224,138,.15); }
+.qadd.on{ background:var(--lime); border-color:var(--lime); color:#fff; }
 .srow.is-added{ background:rgba(191,224,138,.08); }
 .prow.is-added{ background:rgba(191,224,138,.16); }
 

@@ -34,10 +34,10 @@
     return clone.textContent.replace(/\s+/g, ' ').trim();
   }
 
-  var ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
-  var ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
+  // El ✓ está siempre en el DOM; el CSS lo muestra (círculo lleno) solo al seleccionar.
+  var ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
 
-  // --- Botón "+" en cada fila ---
+  // --- Círculo de selección en cada fila ---
   rows.forEach(function (row, i) {
     var id = (row.classList.contains('prow') ? 'promo-' : 'svc-') + i;
     var name = nameOf(row), price = priceOf(row);
@@ -46,6 +46,7 @@
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'qadd';
+    btn.innerHTML = ICON_CHECK;
     btn.setAttribute('aria-pressed', 'false');
     btn.setAttribute('aria-label', 'Agregar ' + name + ' a la cotización');
     row.appendChild(btn);
@@ -70,7 +71,6 @@
     var b = row._qbtn;
     b.classList.toggle('on', on);
     b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    b.innerHTML = on ? ICON_CHECK : ICON_PLUS;
     b.setAttribute('aria-label', (on ? 'Quitar ' : 'Agregar ') + row._qmeta.name);
   }
 
@@ -79,7 +79,7 @@
   if (phead) {
     var hint = document.createElement('p');
     hint.className = 'qhint';
-    hint.innerHTML = 'Toca <span class="qhint-plus">' + ICON_PLUS + '</span> para armar tu cotización y enviarla por WhatsApp.';
+    hint.innerHTML = 'Marca lo que te interese para armar tu cotización y enviarla por WhatsApp.';
     phead.appendChild(hint);
   }
 
