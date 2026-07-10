@@ -1,13 +1,14 @@
 /* ===== Cotización por WhatsApp (PROTOTIPO) =====
-   Mejora progresiva: sin JS, servicios.html queda intacto.
-   Añade botón "+" en cada servicio, una pastilla flotante y un panel
-   que arma un mensaje de WhatsApp con lo seleccionado. Persiste en localStorage. */
+   Mejora progresiva: sin JS, servicios.html/promociones.html quedan intactos.
+   Añade botón "+" en cada servicio o promoción, una pastilla flotante y un
+   panel que arma un mensaje de WhatsApp con lo seleccionado. Persiste en
+   localStorage y se comparte entre servicios y promociones. */
 (function () {
   'use strict';
   var WA = '584129160186';
   var KEY = 'diag_cotiz_v1';
 
-  var rows = Array.prototype.slice.call(document.querySelectorAll('.srow'));
+  var rows = Array.prototype.slice.call(document.querySelectorAll('.srow, .prow'));
   if (!rows.length) return;
 
   // Estado: { id: {name, price} }
@@ -16,11 +17,15 @@
   function save() { try { localStorage.setItem(KEY, JSON.stringify(selected)); } catch (e) {} }
 
   function priceOf(row) {
-    var b = row.querySelector('b');
+    var b = row.querySelector('.pprice') || row.querySelector('b');
     var n = b ? parseFloat(b.textContent.replace(/[^0-9.]/g, '')) : 0;
     return isNaN(n) ? 0 : n;
   }
   function nameOf(row) {
+    // Promoción: usa el nombre del combo (.pname)
+    var pname = row.querySelector('.pname');
+    if (pname) return pname.textContent.replace(/\s+/g, ' ').trim();
+    // Servicio: usa el <span> sin el <small> descriptivo
     var span = row.querySelector('span');
     if (!span) return '';
     var clone = span.cloneNode(true);
@@ -34,7 +39,7 @@
 
   // --- Botón "+" en cada fila ---
   rows.forEach(function (row, i) {
-    var id = 'svc-' + i;
+    var id = (row.classList.contains('prow') ? 'promo-' : 'svc-') + i;
     var name = nameOf(row), price = priceOf(row);
     row.setAttribute('data-qid', id);
 
@@ -58,7 +63,7 @@
   });
 
   function paintRow(id) {
-    var row = document.querySelector('.srow[data-qid="' + id + '"]');
+    var row = document.querySelector('[data-qid="' + id + '"]');
     if (!row) return;
     var on = !!selected[id];
     row.classList.toggle('is-added', on);
@@ -159,12 +164,12 @@
   }
 
   function waLink() {
-    var lines = ['Hola, quiero cotizar los siguientes servicios:', ''];
+    var lines = ['Hola, quiero obtener una cita de los siguientes servicios:', ''];
     keys().forEach(function (k) {
       var it = selected[k];
-      lines.push('• ' + it.name + (it.price ? ' — $' + it.price : ''));
+      lines.push('* ' + it.name + (it.price ? ' — $' + it.price : ''));
     });
-    lines.push('', 'Total estimado: $' + total(), '¿Me confirman disponibilidad y precio final? Gracias.');
+    lines.push('', 'Total $' + total(), 'Me confirman para cuando tienen disponibilidad, por favor.');
     return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
   }
 
