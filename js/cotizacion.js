@@ -34,17 +34,44 @@
     var n = b ? parseFloat(b.textContent.replace(/[^0-9.]/g, '')) : 0;
     return isNaN(n) ? 0 : n;
   }
-  function nameOf(row) {
+  function text(el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+
+  function baseNameOf(row) {
     // Promoción: usa el nombre del combo (.pname)
     var pname = row.querySelector('.pname');
-    if (pname) return pname.textContent.replace(/\s+/g, ' ').trim();
+    if (pname) return text(pname);
     // Servicio: usa el <span> sin el <small> descriptivo
     var span = row.querySelector('span');
     if (!span) return '';
     var clone = span.cloneNode(true);
     var s = clone.querySelector('small');
     if (s) s.parentNode.removeChild(s);
-    return clone.textContent.replace(/\s+/g, ' ').trim();
+    return text(clone);
+  }
+
+  // Lo que distingue a dos filas con el mismo nombre: el <small> en servicios,
+  // el .pdesc en promociones.
+  function descOf(row) {
+    return text(row.querySelector('small') || row.querySelector('.pdesc'));
+  }
+
+  /* Nombres para la cotización, únicos aunque la página repita uno. Ejemplo real:
+     "Doppler art. y venoso" existe para 1 miembro y para ambos, y sin distinguirlos
+     al centro le llegan dos líneas idénticas. Al repetido se le añade su descriptor
+     entre paréntesis; si no tiene o es demasiado largo para el mensaje, se numera.
+     Los nombres que no se repiten se quedan tal cual. */
+  var MAX_DESC = 40;
+
+  function namesOf(list) {
+    var count = {}, seen = {};
+    var bases = list.map(baseNameOf);
+    bases.forEach(function (b) { count[b] = (count[b] || 0) + 1; });
+    return bases.map(function (b, i) {
+      if (count[b] < 2) return b;
+      seen[b] = (seen[b] || 0) + 1;
+      var d = descOf(list[i]);
+      return b + ' (' + (d && d.length <= MAX_DESC ? d : seen[b]) + ')';
+    });
   }
 
   // El ✓ está siempre en el DOM; el CSS lo muestra (círculo lleno) solo al seleccionar.
@@ -52,12 +79,13 @@
 
   // --- Círculo de selección en cada fila ---
   var kindHere = rows[0].classList.contains('prow') ? 'promo-' : 'svc-';
+  var names = namesOf(rows);
   var idsHere = {};
 
-  rows.forEach(function (row) {
-    var name = nameOf(row), price = priceOf(row);
+  rows.forEach(function (row, i) {
+    var name = names[i], price = priceOf(row);
     var id = idOf(row, name);
-    while (idsHere[id]) { id += '-b'; }   // por si dos filas comparten nombre
+    while (idsHere[id]) { id += '-b'; }   // red de seguridad si aún colisionan
     idsHere[id] = true;
     row.setAttribute('data-qid', id);
 
