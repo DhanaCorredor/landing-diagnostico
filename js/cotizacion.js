@@ -1,20 +1,33 @@
 /* ===== Cotización por WhatsApp (PROTOTIPO) =====
    Mejora progresiva: sin JS, servicios.html/promociones.html quedan intactos.
-   Añade botón "+" en cada servicio o promoción, una pastilla flotante y un
+   Añade un círculo de selección en cada servicio o promoción, una pastilla y un
    panel que arma un mensaje de WhatsApp con lo seleccionado. Persiste en
    localStorage y se comparte entre servicios y promociones. */
 (function () {
   'use strict';
   var WA = '584129160186';
-  var KEY = 'diag_cotiz_v1';
+  var KEY = 'diag_cotiz_v2';
 
   var rows = Array.prototype.slice.call(document.querySelectorAll('.srow, .prow'));
   if (!rows.length) return;
 
-  // Estado: { id: {name, price} }
+  /* Estado: { id: {name, price} }. El id se deriva del NOMBRE del servicio, no de
+     su posición: así reordenar la lista no marca filas equivocadas. El precio
+     guardado se refresca con el del DOM en cada visita, para que nadie cotice
+     con una tarifa vieja que quedó en localStorage. */
   var selected = {};
   try { selected = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { selected = {}; }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(selected)); } catch (e) {} }
+
+  function idOf(row, name) {
+    var kind = row.classList.contains('prow') ? 'promo' : 'svc';
+    var slug = name.toLowerCase()
+      .replace(/[áàä]/g, 'a').replace(/[éèë]/g, 'e')
+      .replace(/[íìï]/g, 'i').replace(/[óòö]/g, 'o')
+      .replace(/[úùü]/g, 'u').replace(/ñ/g, 'n')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return kind + '-' + slug;
+  }
 
   function priceOf(row) {
     var b = row.querySelector('.pprice') || row.querySelector('b');
@@ -38,10 +51,18 @@
   var ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>';
 
   // --- Círculo de selección en cada fila ---
-  rows.forEach(function (row, i) {
-    var id = (row.classList.contains('prow') ? 'promo-' : 'svc-') + i;
+  var kindHere = rows[0].classList.contains('prow') ? 'promo-' : 'svc-';
+  var idsHere = {};
+
+  rows.forEach(function (row) {
     var name = nameOf(row), price = priceOf(row);
+    var id = idOf(row, name);
+    while (idsHere[id]) { id += '-b'; }   // por si dos filas comparten nombre
+    idsHere[id] = true;
     row.setAttribute('data-qid', id);
+
+    // Si venía guardado, se refresca con el nombre y el precio de HOY.
+    if (selected[id]) selected[id] = { name: name, price: price };
 
     var btn = document.createElement('button');
     btn.type = 'button';
@@ -62,6 +83,14 @@
     row._qbtn = btn;
     row._qmeta = { id: id, name: name, price: price };
   });
+
+  // Soltar lo guardado de esta misma página que ya no existe (servicio retirado
+  // o renombrado). Lo de la otra página no se toca: la selección es compartida.
+  Object.keys(selected).forEach(function (id) {
+    if (id.indexOf(kindHere) === 0 && !idsHere[id]) delete selected[id];
+  });
+  save();
+  try { localStorage.removeItem('diag_cotiz_v1'); } catch (e) {}
 
   function paintRow(id) {
     var row = document.querySelector('[data-qid="' + id + '"]');

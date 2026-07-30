@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script>document.documentElement.classList.add('js')</script>
+<script>
+/* Flag anti-FOUC. Si el JS falla —el archivo no carga o revienta al ejecutarse—
+   quitamos la clase y la página vuelve a su versión sin JS (todo visible),
+   en vez de quedarse en blanco por las animaciones de aparición. */
+document.documentElement.classList.add('js');
+addEventListener('error', function (e) {
+  var t = e.target;
+  if (!t || t === window || t.tagName === 'SCRIPT') {
+    document.documentElement.classList.remove('js');
+  }
+}, true);
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Diagnóstico · Centro de Salud · Maracay</title>
