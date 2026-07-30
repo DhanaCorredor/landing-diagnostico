@@ -4,6 +4,9 @@ CLAUDE.md
 .claude*/
 **/claude/
 
+# Contenido para redes (posts/stories) — no forma parte del sitio
+contenido/
+
 # OS
 Thumbs.db
 Desktop.ini
