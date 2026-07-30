@@ -3,6 +3,8 @@
 (function () {
   'use strict';
 
+  function slice(nodes) { return Array.prototype.slice.call(nodes); }
+
   var drawer = document.getElementById('drawer');
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('header.nav');
@@ -20,7 +22,8 @@
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     // Cerrar el menú al pulsar cualquier enlace
-    drawer.querySelectorAll('a').forEach(function (link) {
+    // (slice.call: los navegadores antiguos no tienen NodeList.forEach)
+    slice(drawer.querySelectorAll('a')).forEach(function (link) {
       link.addEventListener('click', closeDrawer);
     });
   }
@@ -35,7 +38,7 @@
   }
 
   // Animaciones de aparición al entrar en pantalla
-  var reveals = document.querySelectorAll('.reveal');
+  var reveals = slice(document.querySelectorAll('.reveal'));
   if (reveals.length) {
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
