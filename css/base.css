@@ -32,6 +32,21 @@ img{ max-width:100%; display:block; }
 .srow.is-added{ background:rgba(191,224,138,.08); }
 .prow.is-added{ background:rgba(191,224,138,.16); }
 
+/* Promo de campaña Octubre Rosa: fila blanca con acentos rosados.
+   :is() con el id para ganar a #promociones .prow de index.css. */
+:is(#promociones,.promo-list) .prow.rosa{ --rosa:#d6336c; background:#fff; border-radius:14px; border-top-color:transparent; }
+:is(#promociones,.promo-list) .prow.rosa:hover,
+:is(#promociones,.promo-list) .prow.rosa.is-added{ background:#fff3f8; }
+:is(#promociones,.promo-list) .prow.rosa + .prow{ border-top-color:transparent; }
+:is(#promociones,.promo-list) .prow.rosa .ptag{ color:var(--rosa); }
+:is(#promociones,.promo-list) .prow.rosa .pname{ color:var(--teal); }
+:is(#promociones,.promo-list) .prow.rosa .pdesc{ color:var(--muted); }
+:is(#promociones,.promo-list) .prow.rosa .pdesc strong{ color:var(--rosa); }
+:is(#promociones,.promo-list) .prow.rosa .pprice{ color:var(--rosa); text-shadow:none; }
+.prow.rosa .qadd{ border-color:var(--rosa); }
+.prow.rosa .qadd:hover{ background:rgba(214,51,108,.1); }
+.prow.rosa .qadd.on{ background:var(--rosa); border-color:var(--rosa); color:#fff; }
+
 /* pastilla flotante */
 .qbar{ position:fixed; left:50%; bottom:20px; transform:translate(-50%,140%); z-index:80;
       display:inline-flex; align-items:center; gap:12px; padding:12px 20px; border:none; cursor:pointer;
