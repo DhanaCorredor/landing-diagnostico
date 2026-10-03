@@ -181,8 +181,9 @@
   .ft-bot{ text-align:center; border-top:1px solid rgba(255,255,255,.14); margin-top:30px; padding-top:20px; font-size:12.5px; color:#a7cbc8; }
 
   /* ===== POR QUÉ ELEGIRNOS ===== */
-  /* Va pegada a Servicios (ambas en blanco): sin padding arriba para no duplicar el hueco */
-  #servicios + #nosotros{ padding-top:0; }
+  /* Va tras Servicios (ambas en blanco): una línea marca el cambio de sección
+     y el padding superior es menor para no duplicar el hueco */
+  #servicios + #nosotros{ padding-top:44px; border-top:1px solid var(--line); }
   /* Móvil: fila deslizable (se asoma la siguiente tarjeta); escritorio: 4 columnas */
   .why{ display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; margin:30px -20px 0; padding:4px 20px 14px; scrollbar-width:none; }
   .why::-webkit-scrollbar{ display:none; }
