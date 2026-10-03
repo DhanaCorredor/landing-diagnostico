@@ -183,6 +183,7 @@
   /* ===== POR QUÉ ELEGIRNOS ===== */
   /* Va tras Servicios (ambas en blanco): una línea marca el cambio de sección
      y el padding superior es menor para no duplicar el hueco */
+  #nosotros .sec-head{ max-width:860px; } /* título largo: 2 líneas en escritorio, no 3 */
   #servicios + #nosotros{ padding-top:44px; border-top:1px solid var(--line); }
   /* Móvil: fila deslizable (se asoma la siguiente tarjeta); escritorio: 4 columnas */
   .why{ display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; margin:30px -20px 0; padding:4px 20px 14px; scrollbar-width:none; }
