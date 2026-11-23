@@ -91,10 +91,9 @@
   /* móvil: hero con la MARCA protagonista */
   .hero-brand{ text-align:center; }
   .hb-name{ font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(38px,11.5vw,52px); letter-spacing:-.005em; line-height:1; text-transform:uppercase; color:#fff; }
-  .hb-name .d{ color:#bfe08a; }
-  /* Navidad: el gorro del logo de diciembre sobre la D (en em: escala con la letra) */
-  .hb-name .d{ position:relative; display:inline-block; }
-  .hb-name .d::before{ content:""; position:absolute; left:-.1em; top:-.44em; width:1.1em; height:.92em; background:url(../img/gorro-navidad.webp) center/contain no-repeat; filter:drop-shadow(0 4px 6px rgba(0,0,0,.3)); }
+  /* Navidad: la D del logo con el gorro (imagen de la clienta) en lugar de la letra. En em para que escale con
+     el texto: la D ocupa el 72% inferior de la imagen (≈ altura de mayúscula) y el gorro sobresale a la derecha */
+  .hb-name .d-navidad{ display:inline-block; height:1.14em; width:auto; vertical-align:baseline; margin-right:-.06em; position:relative; z-index:1; }
   .hb-sub{ margin-top:17px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:#bfe08a; font-weight:600; line-height:1.4; }
   .hero .lead{ font-size:16.5px; color:rgba(255,255,255,.9); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
