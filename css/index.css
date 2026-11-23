@@ -63,6 +63,28 @@
   .hero{ position:relative; overflow:hidden; background:linear-gradient(165deg,#1d504d 0%, #173f3d 60%, #112e2c 100%); color:#fff; }
   .hero::before{ content:""; position:absolute; top:-120px; right:-90px; width:340px; height:340px; border-radius:50%; background:radial-gradient(circle, rgba(147,199,82,.22), transparent 68%); z-index:0; }
   .hero-grid{ position:relative; z-index:1; }
+  /* Navidad: nieve en CSS (copos en mosaicos de distinto tamaño). Cada capa baja exactamente la altura de su
+     mosaico por vuelta, así el bucle no salta, y al ser mosaicos distintos caen a distinta velocidad.
+     Con reduce-motion la regla global la deja quieta. */
+  .nieve{ position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(circle at 189px 195px, rgba(255,255,255,0.69) 1.6px, transparent 2.6px),
+      radial-gradient(circle at 170px 76px, rgba(255,255,255,0.74) 1.5px, transparent 2.5px),
+      radial-gradient(circle at 117px 230px, rgba(255,255,255,0.74) 2.1px, transparent 3.1px),
+      radial-gradient(circle at 217px 220px, rgba(255,255,255,0.64) 2.4px, transparent 3.4px),
+      radial-gradient(circle at 5px 203px, rgba(255,255,255,0.7) 1.5px, transparent 2.5px),
+      radial-gradient(circle at 287px 64px, rgba(255,255,255,0.6) 2.8px, transparent 3.8px),
+      radial-gradient(circle at 89px 38px, rgba(255,255,255,0.5) 2.5px, transparent 3.5px),
+      radial-gradient(circle at 84px 216px, rgba(255,255,255,0.68) 2.1px, transparent 3.1px),
+      radial-gradient(circle at 304px 116px, rgba(255,255,255,0.66) 2.6px, transparent 3.6px),
+      radial-gradient(circle at 194px 239px, rgba(255,255,255,0.47) 2.6px, transparent 3.6px),
+      radial-gradient(circle at 350px 284px, rgba(255,255,255,0.4) 3.4px, transparent 4.4px),
+      radial-gradient(circle at 409px 89px, rgba(255,255,255,0.34) 3.5px, transparent 4.5px),
+      radial-gradient(circle at 333px 229px, rgba(255,255,255,0.47) 3.1px, transparent 4.1px),
+      radial-gradient(circle at 165px 133px, rgba(255,255,255,0.45) 3.7px, transparent 4.7px);
+    background-size:237px 237px, 237px 237px, 237px 237px, 237px 237px, 237px 237px, 311px 311px, 311px 311px, 311px 311px, 311px 311px, 311px 311px, 419px 419px, 419px 419px, 419px 419px, 419px 419px;
+    animation:nevar 30s linear infinite; }
+  @keyframes nevar{ to{ background-position:0 474px, 0 474px, 0 474px, 0 474px, 0 474px, 0 311px, 0 311px, 0 311px, 0 311px, 0 311px, 0 419px, 0 419px, 0 419px, 0 419px; } }
   .hero-copy{ padding:48px 22px 64px; text-align:center; max-width:920px; margin:0 auto; }
   .hero h1{ text-transform:uppercase; font-size:clamp(21px,6vw,31px); font-weight:800; line-height:1.16; margin:0; }  /* móvil: 2 líneas */
   .hero h1 em{ font-style:normal; color:#fff; display:block; }  /* móvil: título todo blanco */
@@ -70,6 +92,9 @@
   .hero-brand{ text-align:center; }
   .hb-name{ font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(38px,11.5vw,52px); letter-spacing:-.005em; line-height:1; text-transform:uppercase; color:#fff; }
   .hb-name .d{ color:#bfe08a; }
+  /* Navidad: el gorro del logo de diciembre sobre la D (en em: escala con la letra) */
+  .hb-name .d{ position:relative; display:inline-block; }
+  .hb-name .d::before{ content:""; position:absolute; left:-.1em; top:-.44em; width:1.1em; height:.92em; background:url(../img/gorro-navidad.webp) center/contain no-repeat; filter:drop-shadow(0 4px 6px rgba(0,0,0,.3)); }
   .hb-sub{ margin-top:17px; font-size:14px; letter-spacing:.1em; text-transform:uppercase; color:#bfe08a; font-weight:600; line-height:1.4; }
   .hero .lead{ font-size:16.5px; color:rgba(255,255,255,.9); margin:16px auto 0; max-width:470px; }
   .hero .lead b{ color:#fff; font-weight:600; }
