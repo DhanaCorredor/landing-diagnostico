@@ -1,6 +1,8 @@
   /* ===== Promociones — específico de esta página ===== */
   /* (el chrome común vive en interior.css) */
   .phead h1{ text-transform:uppercase; font-size:clamp(26px,7vw,40px); font-weight:800; }
+  /* Navidad: regalos (Pixabay 1830271, uso comercial libre) sobre el título */
+  .phead .regalos{ display:block; width:150px; height:auto; margin:0 auto 12px; filter:drop-shadow(0 10px 14px rgba(0,0,0,.35)); }
 
   /* PROMO LIST */
   .promo-list{ margin:24px auto 0; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); border-radius:18px; overflow:hidden; }
